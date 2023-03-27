@@ -18,6 +18,11 @@ const Shop = () => {
     setCart(newCart);
   };
 
+  const totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
+  const totalShipping = cart.reduce((acc, curr) => acc + curr.shipping, 0);
+  const totalTax = totalPrice * 0.1;
+  const grandTotal = totalPrice + totalShipping + totalTax;
+
   return (
     <div className="shop-container">
       <div className="products-container">
@@ -32,6 +37,14 @@ const Shop = () => {
       <div className="cart-container">
         <h4>Order Summary</h4>
         <p>Selected items: {cart.length}</p>
+        {cart.map((prod) => console.log("prod", prod))}
+        <p>Total Price: ${totalPrice}</p>
+        <p>Total Shipping Charge: ${totalShipping}</p>
+        <p>Tax: ${totalTax.toFixed(2)}</p>
+        <h6>Grand Total: ${grandTotal.toFixed(2)}</h6>
+
+        <button className="btn-clear-cart">Clear Cart</button>
+        <button className="btn-review-order">Review Order</button>
       </div>
     </div>
   );
