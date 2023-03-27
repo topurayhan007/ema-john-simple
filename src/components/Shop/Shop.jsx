@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Product from "../Product/Product";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "./Shop.css";
 
 const Shop = () => {
@@ -16,6 +19,10 @@ const Shop = () => {
     // console.log(product);
     const newCart = [...cart, product];
     setCart(newCart);
+  };
+
+  const handleClearCart = () => {
+    setCart([]);
   };
 
   const totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
@@ -43,8 +50,13 @@ const Shop = () => {
         <p>Tax: ${totalTax.toFixed(2)}</p>
         <h6>Grand Total: ${grandTotal.toFixed(2)}</h6>
 
-        <button className="btn-clear-cart">Clear Cart</button>
-        <button className="btn-review-order">Review Order</button>
+        <button className="btn-clear-cart" onClick={handleClearCart}>
+          Clear Cart <FontAwesomeIcon icon={faTrashCan} />
+        </button>
+        <br />
+        <button className="btn-review-order">
+          Review Order <FontAwesomeIcon icon={faArrowRight} />
+        </button>
       </div>
     </div>
   );

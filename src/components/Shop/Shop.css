@@ -47,7 +47,21 @@
 }
 
 .btn-clear-cart {
+  color: white;
+  font-weight: 600;
+  background: #ff3030;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  padding: 13px 0;
+}
+.btn-clear-cart:hover {
+  background-color: #f22b2b;
 }
 
 .btn-review-order {
+  color: white;
+  font-weight: 600;
+  background: #ff9900;
+  border-radius: 4px;
+  padding: 13px 0;
 }
