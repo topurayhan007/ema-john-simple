@@ -9,3 +9,11 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 45px;
 }
+
+.cart-container {
+  background: rgba(255, 153, 0, 0.3);
+}
+
+.cart-container h4 {
+  text-align: center;
+}
