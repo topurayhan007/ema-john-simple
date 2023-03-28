@@ -9,22 +9,23 @@ const Cart = (props) => {
   // const cart = props.cart; // option 1
   const { cart } = props; // option 2
 
-  let totalPrice = 0;
+  /* let totalPrice = 0;
   let quantity = 0;
   let totalShipping = 0;
   for (const product of cart) {
-    /* if (product.quantity === 0) {
-      product.quantity = 1;
-    } */
+    // if (product.quantity === 0) {
+    //   product.quantity = 1;
+    // }
     // product.quantity = product.quantity || 1;
     totalPrice = totalPrice + product.price * product.quantity;
     totalShipping = totalShipping + product.shipping * product.quantity;
     quantity = quantity + product.quantity;
   }
   const totalTax = (totalPrice * 10) / 100;
-  const grandTotal = totalPrice + totalShipping + totalTax;
+  const grandTotal = totalPrice + totalShipping + totalTax; */
 
-  /* const totalPrice = cart.reduce(
+  const quantity = cart.reduce((acc, curr) => acc + curr.quantity, 0);
+  const totalPrice = cart.reduce(
     (acc, curr) => acc + curr.price * (curr.quantity === 0 ? 1 : curr.quantity),
     0
   );
@@ -33,7 +34,7 @@ const Cart = (props) => {
     0
   );
   const totalTax = totalPrice * 0.1;
-  const grandTotal = totalPrice + totalShipping + totalTax; */
+  const grandTotal = totalPrice + totalShipping + totalTax;
 
   return (
     <div className="cart">
