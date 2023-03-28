@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Product from "../Product/Product";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "./Shop.css";
+import Cart from "../Cart/Cart";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -25,11 +23,6 @@ const Shop = () => {
     setCart([]);
   };
 
-  const totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
-  const totalShipping = cart.reduce((acc, curr) => acc + curr.shipping, 0);
-  const totalTax = totalPrice * 0.1;
-  const grandTotal = totalPrice + totalShipping + totalTax;
-
   return (
     <div className="shop-container">
       <div className="products-container">
@@ -42,21 +35,7 @@ const Shop = () => {
         ))}
       </div>
       <div className="cart-container">
-        <h4>Order Summary</h4>
-        <p>Selected items: {cart.length}</p>
-        {cart.map((prod) => console.log("prod", prod))}
-        <p>Total Price: ${totalPrice}</p>
-        <p>Total Shipping Charge: ${totalShipping}</p>
-        <p>Tax: ${totalTax.toFixed(2)}</p>
-        <h6>Grand Total: ${grandTotal.toFixed(2)}</h6>
-
-        <button className="btn-clear-cart" onClick={handleClearCart}>
-          Clear Cart <FontAwesomeIcon icon={faTrashCan} />
-        </button>
-        <br />
-        <button className="btn-review-order">
-          Review Order <FontAwesomeIcon icon={faArrowRight} />
-        </button>
+        <Cart cart={cart} handleClearCart={handleClearCart}></Cart>
       </div>
     </div>
   );
