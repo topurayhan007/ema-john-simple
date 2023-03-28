@@ -26,7 +26,7 @@ const Cart = (props) => {
   return (
     <div className="cart">
       <h4>Order Summary</h4>
-      <p>Selected items: {cart.length}</p>
+      <p>Selected items: {cart.quantity}</p>
       {/* {cart.map((prod) => console.log("prod", prod))} */}
       <p>Total Price: ${totalPrice}</p>
       <p>Total Shipping Charge: ${totalShipping}</p>
