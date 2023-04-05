@@ -45,7 +45,9 @@
   background: #ff3030;
   border-radius: 4px;
   margin-bottom: 30px;
-  padding: 13px 0;
+  padding: 13px;
+  display: flex;
+  justify-content: space-between;
 }
 .btn-clear-cart:hover {
   background-color: #f22b2b;
@@ -56,5 +58,7 @@
   font-weight: 600;
   background: #ff9900;
   border-radius: 4px;
-  padding: 13px 0;
+  padding: 13px;
+  display: flex;
+  justify-content: space-between;
 }
