@@ -5,9 +5,9 @@ import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 // const Cart = ({cart}) => { // option 3
-const Cart = (props) => {
+const Cart = ({ cart, handleClearCart, children }) => {
   // const cart = props.cart; // option 1
-  const { cart, handleClearCart } = props; // option 2
+  // const { cart, handleClearCart } = props; // option 2
 
   /* let totalPrice = 0;
   let quantity = 0;
@@ -49,10 +49,7 @@ const Cart = (props) => {
       <button className="btn-clear-cart" onClick={handleClearCart}>
         Clear Cart <FontAwesomeIcon icon={faTrashCan} />
       </button>
-      <br />
-      <button className="btn-review-order">
-        Review Order <FontAwesomeIcon icon={faArrowRight} />
-      </button>
+      {children}
     </div>
   );
 };
