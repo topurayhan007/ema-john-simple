@@ -1,0 +1,7 @@
+.order-review-container {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+.review-container {
+  margin: 50px auto;
+}
