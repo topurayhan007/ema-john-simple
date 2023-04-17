@@ -4,6 +4,8 @@ import "./Login.css";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
+  const [show, setShow] = useState(false);
+
   const [error, setError] = useState("");
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -50,7 +52,17 @@ const Login = () => {
         </div>
         <div className="form-control">
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" required id="" />
+          <input
+            type={show ? "text" : "password"}
+            name="password"
+            required
+            id=""
+          />
+          <p onClick={setShow(!show)}>
+            <small>
+              {show ? <span>Hide Password</span> : <span>Show password</span>}
+            </small>
+          </p>
         </div>
         <p className="text-error">{error}</p>
 
