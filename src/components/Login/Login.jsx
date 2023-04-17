@@ -38,8 +38,18 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error.message);
-        setError(error.message);
+        if (error.message === "Firebase: Error (auth/user-not-found).") {
+          setError("User doesn't exists!");
+          return;
+        } else if (error.message === "Firebase: Error (auth/wrong-password).") {
+          setError("Password doesn't match!");
+          return;
+        }
       });
+  };
+
+  const handlePasswordShow = () => {
+    setShow(!show);
   };
 
   return (
@@ -58,7 +68,7 @@ const Login = () => {
             required
             id=""
           />
-          <p onClick={setShow(!show)}>
+          <p onClick={handlePasswordShow}>
             <small>
               {show ? <span>Hide Password</span> : <span>Show password</span>}
             </small>
